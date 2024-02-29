@@ -1,0 +1,36 @@
+<form [formGroup]="form">
+    <div id="container">
+        <div id="right-container">
+            <div class="user-input">
+                <input placeholder="Name" type="text" pInputText formControlName="name"/>
+           </div>
+           <div class="user-input">
+                <input placeholder="Code" type="text" pInputText formControlName="code"/>
+            </div>
+            <div class="user-input">
+                <input placeholder="Price" type="number" pInputText formControlName="price"/>
+           </div>
+           <div class="user-input"> 
+                <input placeholder="Category" type="text" pInputText formControlName="category"/>
+           </div>
+           <div class="user-input">
+                <input placeholder="Quantity" type="number" pInputText formControlName="quantity"/>
+           </div>
+           <div class="user-input">
+                <input placeholder="Inventory Status" type="text" pInputText formControlName="inventoryStatus"/>
+           </div>
+           <div class="user-input">
+                <input placeholder="Rating" type="number" formControlName="rating" pInputText/>
+           </div>
+           <p-button [label]="config.data?.product ? 'Modifier' : 'Ajouter'" [disabled]="form.invalid" [ngClass]="{'opacity-40': form.invalid}" (click)="form.valid ? onSubmit() : false" type="submit"></p-button>
+        </div>
+        <div id="left-container">
+            <div class="user-input">
+                <textarea placeholder="Product's description" id="description" formControlName="description" pInputTextarea ></textarea>       
+            </div>
+           <div>
+                <p-fileUpload name="demo[]" url="link/to/api/upload/handler" (onUpload)="onUpload($event)" accept="image/*" [maxFileSize]="1000000"></p-fileUpload>
+           </div>
+        </div>
+    </div>
+</form>
